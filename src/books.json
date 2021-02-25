@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  },
+  {
+    "id": 2,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  },
+  {
+    "id": 3,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  },
+  {
+    "id": 4,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  },
+  {
+    "id": 5,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  },
+  {
+    "id": 6,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  },
+  {
+    "id": 7,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  },
+  {
+    "id": 8,
+    "bookName": "Название книги(очень длинное название книги)",
+    "bookAuthor": "Автор книги(очень длинное ФИО автора книги)",
+    "bookPrice": "12$",
+    "bookImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freformedforum.org%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F02%2Fbook_pile.jpg&f=1&nofb=1"
+  }
+]
