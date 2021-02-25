@@ -79,7 +79,10 @@ const AddFoodPage = () => {
         ...data,
         file,
       };
-      await axios.post("http://localhost:7000/api/food", finalData);
+      await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/api/food`,
+        finalData
+      );
       notification(
         "success",
         `Блюдо '${data.name}' создано`,
