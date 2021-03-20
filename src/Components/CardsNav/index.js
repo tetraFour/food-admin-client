@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Layout, Menu } from "antd";
 
@@ -7,8 +7,9 @@ import { ReactComponent as FoodLogo } from "../../assets/images/salad.svg";
 import { ReactComponent as AddFoodIcon } from "../../assets/images/add-food.svg";
 import { ReactComponent as AddRestaurantIcon } from "../../assets/images/add-restaurant.svg";
 import { ReactComponent as FoodIcon } from "../../assets/images/tray.svg";
-import { ReactComponent as RestaurantIcon } from "../../assets/images/shop.svg";
+// import { ReactComponent as RestaurantIcon } from "../../assets/images/shop.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/images/logout.svg";
+import { ReactComponent as TableIcon } from "../../assets/images/table.svg";
 
 import { Link, useHistory } from "react-router-dom";
 import { useNotification } from "../../hooks";
@@ -26,18 +27,9 @@ const menuItems = [
     },
     icon: <FoodIcon />,
   },
+
   {
     id: "2",
-    to: "/home",
-    title: "Рестораны",
-    styles: {
-      display: "flex",
-      alignItems: "center",
-    },
-    icon: <RestaurantIcon />,
-  },
-  {
-    id: "3",
     to: "/add-new-food",
     title: "Добавить еду",
     styles: {
@@ -47,7 +39,7 @@ const menuItems = [
     icon: <AddFoodIcon />,
   },
   {
-    id: "4",
+    id: "3",
     to: "/add-new-house",
     title: "Добавить ресторан",
     styles: {
@@ -56,6 +48,16 @@ const menuItems = [
     },
     icon: <AddRestaurantIcon />,
   },
+  {
+    id: "4",
+    to: "/full-data",
+    title: "таблица",
+    styles: {
+      display: "flex",
+      alignItems: "center",
+    },
+    icon: <TableIcon />,
+  },
 ];
 
 const BooksNav = ({ collapsed }) => {
@@ -63,14 +65,14 @@ const BooksNav = ({ collapsed }) => {
 
   const notification = useNotification();
 
-  const [isUser, setIsUser] = React.useState(false);
-
-  useEffect(() => {
-    const { role } = JSON.parse(localStorage.getItem("user"));
-    if (role === 1) {
-      setIsUser(true);
-    }
-  }, []);
+  // const [isUser, setIsUser] = React.useState(false);
+  //
+  // useEffect(() => {
+  //   const { role } = JSON.parse(localStorage.getItem("user"));
+  //   if (role === 1) {
+  //     setIsUser(true);
+  //   }
+  // }, []);
 
   const logoutHandler = () => {
     localStorage.removeItem("user");

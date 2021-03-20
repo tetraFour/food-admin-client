@@ -31,11 +31,11 @@ const columns = [
     key: "action",
     render: (text, record) => (
       <span>
-        <a href="#">Action 一 {record.name}</a>
+        <a href="/">Action 一 {record.name}</a>
         <span className="ant-divider" />
-        <a href="#">Delete</a>
+        <a href="/">Delete</a>
         <span className="ant-divider" />
-        <a href="#" className="ant-dropdown-link">
+        <a href="/" className="ant-dropdown-link">
           More actions
         </a>
       </span>
@@ -45,21 +45,28 @@ const columns = [
 
 export const HouseTable = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/api/restaurants/all-restaurants`
-      );
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/api/restaurants/all-restaurants`
+        );
 
-      console.log(data);
-      setRestaurants(
-        data.map((rest, id) => ({
-          id: id + 1,
-          name: rest.name,
-          restaurantSite: rest.site,
-          email: rest.user?.email,
-        }))
-      );
+        console.log(data);
+        setRestaurants(
+          data.map((rest, id) => ({
+            id: id + 1,
+            name: rest.name,
+            restaurantSite: rest.site,
+            email: rest.user?.email,
+          }))
+        );
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     fetchData();
@@ -67,7 +74,12 @@ export const HouseTable = () => {
 
   return (
     <div style={{ width: "100%" }}>
-      <Table columns={columns} dataSource={restaurants} pagination={false} />
+      <Table
+        columns={columns}
+        dataSource={restaurants}
+        loading={isLoading}
+        pagination={false}
+      />
     </div>
   );
 };

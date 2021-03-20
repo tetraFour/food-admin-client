@@ -1,7 +1,7 @@
-export function api(value, callback) {
-  let timeout;
-  let currentValue;
+let timeout;
+let currentValue;
 
+export function api(value, callback) {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;

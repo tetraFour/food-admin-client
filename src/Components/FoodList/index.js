@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 import { Layout, Card, Skeleton } from "antd";
-import { delay } from "../../helpers";
+// import { delay } from "../../helpers";
 
 const { Content } = Layout;
 
@@ -16,7 +16,7 @@ const FoodList = ({ food, isLoading, inputValue }) => {
   // const [food, setFood] = useState([]);
   // const [isLoading, setIsLoading] = useState(true);
 
-  const { role } = JSON.parse(localStorage.getItem("user"));
+  // const { role } = JSON.parse(localStorage.getItem("user"));
 
   // React.useEffect(() => {
   //   const fetchFood = async () => {
@@ -71,7 +71,7 @@ const FoodList = ({ food, isLoading, inputValue }) => {
                 }
                 style={{ height: "100%", objectFit: "cover" }}
                 onClick={() => {
-                  history.push(`/card/${f._id}`);
+                  history.push(`/food/${f._id}`);
                 }}
               />
             }

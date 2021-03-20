@@ -10,17 +10,10 @@ import {
   DollarCircleOutlined,
 } from "@ant-design/icons";
 
-import cardIcon from "../../assets/images/medical.svg";
-
-import AddDisease from "../../Components/Modals/AddDisease";
-import DiseaseList from "../../Components/DiseaseList";
 import Axios from "axios";
 import { useNotification } from "../../hooks";
-import { delay } from "../../helpers";
 import ChangeFoodName from "../../Components/Modals/ChangeName";
 import ChangeFoodPrice from "../../Components/Modals/ChangePrice";
-
-// const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const Food = () => {
   const { id } = useParams();
@@ -28,51 +21,6 @@ const Food = () => {
   const notification = useNotification();
 
   const [food, setFood] = React.useState(null);
-
-  // const [inc, setInc] = React.useState(0);
-
-  // const [changeAddDiseaseVisible, setChangeAddDiseaseVisible] = React.useState(
-  //   null
-  // );
-  let start = 0.1;
-
-  const [timer, setTimer] = React.useState("");
-  const [time, setTime] = React.useState(start * 60);
-
-  // let time = start * 60;
-
-  const updateCountdown = React.useCallback(() => {
-    const minutes = Math.floor(time / 60);
-
-    let seconds = time % 60;
-
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    setTimer(`${minutes}:${seconds}`);
-    setTime(time - 1);
-  }, [time]);
-
-  useEffect(() => {
-    const countDown = setInterval(updateCountdown, 1000);
-    if (time === -1) {
-      clearInterval(countDown);
-      return;
-    }
-    return () => {
-      clearInterval(countDown);
-    };
-  }, [time, updateCountdown]);
-
-  useEffect(() => {
-    const handleNotify = () => {
-      notification("success", "Заказ готов!", `блюдо номер 32 готово!`);
-    };
-
-    const finalTimer = setTimeout(handleNotify, 7000);
-    return () => {
-      clearInterval(finalTimer);
-    };
-  }, []);
 
   const [modalFoodNameVisible, setModalFoodChangeNameVisible] = React.useState(
     false
@@ -82,7 +30,7 @@ const Food = () => {
     false
   );
 
-  const [isUser, setIsUser] = React.useState(false);
+  const [, setIsUser] = React.useState(false);
 
   useLayoutEffect(() => {
     const { role } = JSON.parse(localStorage.getItem("user"));
@@ -91,9 +39,8 @@ const Food = () => {
     }
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchFood = async () => {
-      await delay(2000);
       const { data } = await Axios(
         `${process.env.REACT_APP_API_BASE_URL}/api/food/${id}`
       );
@@ -155,7 +102,6 @@ const Food = () => {
             Удалить продукт
           </Button>
         </div>
-        {timer}
         {food ? (
           <Card
             key={food._id}

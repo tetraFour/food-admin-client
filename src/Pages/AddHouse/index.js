@@ -42,8 +42,8 @@ const AddHousePage = () => {
           <Input
             onChange={onChange}
             value={houseData.address}
-            placeholder="адрес"
-            name="address"
+            placeholder="Сайт"
+            name="site"
             style={{ marginBottom: "15px" }}
           />
         </Form.Item>

@@ -2,7 +2,7 @@ import React from "react";
 
 import { useHistory } from "react-router-dom";
 
-import { Input, InputNumber, Modal } from "antd";
+import { InputNumber, Modal } from "antd";
 import axios from "axios";
 
 const ChangeFoodPrice = ({

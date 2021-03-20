@@ -112,6 +112,10 @@
   height: 100%;
 }
 
+.ant-pagination-options {
+  display: none;
+}
+
 .ant-card-cover {
   height: 230px;
   background-color: rgb(232, 236, 243)
