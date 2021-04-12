@@ -10,7 +10,7 @@ export function api(value, callback) {
 
   function search() {
     fetch(
-      `${process.env.REACT_APP_API_BASE_URL}/api/restaurants?restaurant=${currentValue}`
+      `${process.env.REACT_APP_API_BASE_URL}/restaurant?restaurant=${currentValue}`
     )
       .then((response) => response.json())
       .then((result) => {

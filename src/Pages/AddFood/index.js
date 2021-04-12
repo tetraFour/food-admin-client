@@ -99,7 +99,7 @@ const AddFoodPage = () => {
         file,
       };
       await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/food`,
+        `${process.env.REACT_APP_API_BASE_URL}/product`,
         finalData
       );
       notification(

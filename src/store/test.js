@@ -1,38 +1,44 @@
 import axios from "axios";
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, toJS } from "mobx";
 
-class Test {
-  count = 0;
+class Food {
   foodList = [];
-  checked = false;
-  text = "";
+  currentFood = {};
+
+  isLoading = true;
 
   constructor() {
     makeAutoObservable(this);
-    this.getFoodList();
-  }
-
-  increment() {
-    this.count = this.count + 1;
-  }
-
-  decrement() {
-    this.count = this.count - 1;
-  }
-
-  changeHandler(e) {
-    this.text = e.target.value;
   }
 
   async getFoodList() {
+    this.isLoading = true;
     const { data } = await axios(
-      `${process.env.REACT_APP_API_BASE_URL}/get-food`
+      `${process.env.REACT_APP_API_BASE_URL}/product/get-products`
     );
     this.foodList = data;
+    this.isLoading = false;
   }
 
-  changeChecked() {
-    this.checked = !this.checked;
+  async getCurrentFood(id) {
+    this.isLoading = true;
+    const { data } = await axios(
+      `${process.env.REACT_APP_API_BASE_URL}/product/${id}`
+    );
+    this.currentFood = data;
+    this.isLoading = false;
+  }
+
+  setIsLoadingInTrue() {
+    this.isLoading = true;
+  }
+
+  setIsLoadingInFalse() {
+    this.isLoading = false;
+  }
+
+  get food() {
+    return toJS(this.currentFood);
   }
 
   get sortFoodListByName() {
@@ -45,4 +51,4 @@ class Test {
   }
 }
 
-export const test = new Test();
+export const foodStore = new Food();

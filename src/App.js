@@ -15,11 +15,6 @@ import AllDataPage from "./Pages/AllData";
 import TestPage from "./Pages/Test";
 
 const App = () => {
-  useEffect(() => {
-    if (!localStorage.getItem("user")) {
-      localStorage.setItem("user", "123");
-    }
-  }, []);
   return (
     <>
       <Router>

@@ -50,7 +50,7 @@ export const HouseTable = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/api/restaurants/all-restaurants`
+          `${process.env.REACT_APP_API_BASE_URL}/restaurant`
         );
 
         console.log(data);

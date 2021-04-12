@@ -12,6 +12,9 @@ const ChangeFoodPrice = ({
 }) => {
   const history = useHistory();
 
+  console.log("food: ", food);
+  console.log(typeof food.price);
+
   const [foodPrice, setFoodPrice] = React.useState(food.price);
 
   const handleChange = (value) => {
@@ -40,6 +43,7 @@ const ChangeFoodPrice = ({
         onCancel={handleCancel}
       >
         <InputNumber
+          defaultValue={foodPrice}
           value={foodPrice}
           onClick={(e) => e.target.select()}
           onChange={handleChange}

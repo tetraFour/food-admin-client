@@ -2,7 +2,7 @@ import React from "react";
 import { Layout, Input, Button, Form } from "antd";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
-import { useNotification } from "../../hooks";
+import { useLocalStorage, useNotification } from "../../hooks";
 
 const styles = {
   height: "100vh",
@@ -26,6 +26,8 @@ const AuthPage = () => {
     password: "",
   });
 
+  const [user, setUser] = useLocalStorage("user", "");
+
   const [isLoading, setIsLoading] = React.useState(false);
 
   const [form] = Form.useForm();
@@ -37,11 +39,11 @@ const AuthPage = () => {
     setIsLoading(true);
     try {
       const { data } = await Axios.post(
-        "https://hospital-course-backend.herokuapp.com/api/auth/sign-in",
+        `${process.env.REACT_APP_API_BASE_URL}/auth/login`,
         authCred
       );
-      localStorage.setItem("user", JSON.stringify(data));
-      console.log(data);
+      setUser(data);
+      console.log(user);
       setIsLoading(false);
       history.push("/home");
       notification("success", "Успешный вход", `Вы вошли как ${data.login}`);

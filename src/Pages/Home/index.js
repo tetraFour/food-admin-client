@@ -1,27 +1,25 @@
 import React from "react";
 
 import { Layout } from "antd";
+import { observer } from "mobx-react-lite";
 
 import AppHeader from "../../Components/Header";
 import FoodList from "../../Components/FoodList";
 import { delay } from "../../helpers";
+import { foodStore } from "../../store";
 import axios from "axios";
 
 const HomePage = ({ toggle, collapsed }) => {
   const [inputValue, setInputValue] = React.useState("");
-  const [food, setFood] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  // const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     const fetchFood = async () => {
-      await delay(2000);
-      const { data } = await axios(
-        `${process.env.REACT_APP_API_BASE_URL}/get-food`
-      );
+      await foodStore.getFoodList();
 
-      setFood(data);
-      setIsLoading(false);
-      console.log(data);
+      // setFood(data);
+      // setIsLoading(false);
+      // console.log(data);
     };
 
     fetchFood();
@@ -34,12 +32,14 @@ const HomePage = ({ toggle, collapsed }) => {
         collapsed={collapsed}
         inputValue={inputValue}
         setInputValue={setInputValue}
-        food={food}
-        setFood={setFood}
       />
-      <FoodList inputValue={inputValue} food={food} isLoading={isLoading} />
+      <FoodList
+        inputValue={inputValue}
+        food={foodStore.foodList}
+        isLoading={foodStore.isLoading}
+      />
     </Layout>
   );
 };
 
-export default HomePage;
+export default observer(HomePage);

@@ -13,26 +13,6 @@ const { Meta } = Card;
 const FoodList = ({ food, isLoading, inputValue }) => {
   const history = useHistory();
 
-  // const [food, setFood] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // const { role } = JSON.parse(localStorage.getItem("user"));
-
-  // React.useEffect(() => {
-  //   const fetchFood = async () => {
-  //     await delay(2000);
-  //     const { data } = await axios(
-  //       `${process.env.REACT_APP_API_BASE_URL}/get-food`
-  //     );
-  //
-  //     setFood(data);
-  //     setIsLoading(false);
-  //     console.log(data);
-  //   };
-  //
-  //   fetchFood();
-  // }, []);
-
   const filter = (item) => {
     if (inputValue === "") {
       return item;

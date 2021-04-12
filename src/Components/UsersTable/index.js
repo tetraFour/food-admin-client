@@ -44,7 +44,7 @@ const UsersTable = () => {
     const fetchUsers = async () => {
       try {
         const { data } = await axios(
-          `${process.env.REACT_APP_API_BASE_URL}/api/get-users`
+          `${process.env.REACT_APP_API_BASE_URL}/user/get-users`
         );
         setUsersList(data);
       } catch (e) {

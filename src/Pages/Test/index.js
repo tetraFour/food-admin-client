@@ -1,6 +1,6 @@
-import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
-import { test } from "../../store";
+import { foodStore } from "../../store";
+import { observer } from "mobx-react-lite";
 
 const TestPage = () => {
   const calculateTimeLeft = () => {
@@ -21,7 +21,7 @@ const TestPage = () => {
   };
 
   // const decrement = (a) => {
-  //   test.decrement();
+  //   food.decrement();
   // };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -51,15 +51,15 @@ const TestPage = () => {
       <h1>HacktoberFest {year} Countdown</h1>
       <h2>With React Hooks!</h2>
       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-      <h3>{test.count}</h3>
-      <button onClick={() => test.increment()}>+</button>
-      <button onClick={() => test.decrement()}>-</button>
+      <h3>{foodStore.count}</h3>
+      <button onClick={() => foodStore.increment()}>+</button>
+      <button onClick={() => foodStore.decrement()}>-</button>
       <div>
         <label>
           <input
             type="checkbox"
-            checked={test.checked}
-            onChange={() => test.changeChecked()}
+            checked={foodStore.checked}
+            onChange={() => foodStore.changeChecked()}
           />
           sort by name
         </label>
@@ -68,11 +68,11 @@ const TestPage = () => {
         <input
           type="text"
           placeholder="a-z"
-          onChange={(e) => test.changeHandler(e)}
-          value={test.text}
+          onChange={(e) => foodStore.changeHandler(e)}
+          value={foodStore.text}
         />
       </div>
-      <pre>{JSON.stringify(test.foodList, null, 2)}</pre>
+      <pre>{JSON.stringify(foodStore.foodList, null, 2)}</pre>
     </div>
   );
 };
